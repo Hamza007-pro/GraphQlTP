@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,4 +24,14 @@ public class Compte {
 
     @Enumerated(EnumType.STRING)
     private TypeCompte type;
+
+    @OneToMany(mappedBy = "compte")
+    private List<Transaction> transactions;
+
+    public Compte(double solde, Date dateCreation, TypeCompte type) {
+        this.solde = solde;
+        this.dateCreation = dateCreation;
+        this.type = type;
+        this.transactions = new ArrayList<>();
+    }
 }

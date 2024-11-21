@@ -22,9 +22,9 @@ public class GraphApplication {
 	CommandLineRunner start(CompteRepository compteRepository){
 		return args -> {
 			// Initialisation des comptes
-			compteRepository.save(new Compte(null, Math.random()*9000, new Date(), TypeCompte.EPARGNE));
-			compteRepository.save(new Compte(null, Math.random()*9000, new Date(), TypeCompte.COURANT));
-			compteRepository.save(new Compte(null, Math.random()*9000, new Date(), TypeCompte.EPARGNE));
+			compteRepository.save(new Compte( Math.random()*9000, new Date(), TypeCompte.EPARGNE));
+			compteRepository.save(new Compte( Math.random()*9000, new Date(), TypeCompte.COURANT));
+			compteRepository.save(new Compte(Math.random()*9000, new Date(), TypeCompte.EPARGNE));
 		};
 	}
 }
